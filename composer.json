@@ -12,7 +12,8 @@
         "cviebrock/eloquent-sluggable": "^4.8",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "owen-it/laravel-auditing": "^9.2"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

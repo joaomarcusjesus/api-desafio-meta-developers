@@ -3,13 +3,11 @@
 namespace Tickets\Models\Client;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable as AuditableInterface;
-use OwenIt\Auditing\Auditable as AuditableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Client extends Model implements AuditableInterface
+class Client extends Model
 {
-  use AuditableTrait, SoftDeletes;
+  use SoftDeletes;
 
   protected $fillable = [
     'first_name',
@@ -28,13 +26,8 @@ class Client extends Model implements AuditableInterface
     'deleted_at'
   ];
 
-  protected $auditInclude = [
-    'first_name',
-    'last_name',
-    'email',
-    'cpf',
-    'phone',
-    'active',
+  protected $appends = [
+    'full_name'
   ];
 
   public function scopeActive($query)
@@ -58,5 +51,10 @@ class Client extends Model implements AuditableInterface
   {
     if ($value)
       $this->attributes['cpf'] = ($value != null) ? trim(preg_replace('#[^0-9]#', '', $value)) : null;
+  }
+
+  public function getFullNameAttribute()
+  {
+    return "{$this->first_name} {$this->last_name}";
   }
 }

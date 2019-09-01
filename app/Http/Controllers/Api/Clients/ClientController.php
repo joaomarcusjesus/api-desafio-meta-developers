@@ -1,15 +1,16 @@
 <?php
 
-namespace Tickers\Http\Controllers\Api\Clients;
+namespace Tickets\Http\Controllers\Api\Clients;
 
-use Tickers\Models\Client\Client;
-use Tickers\Http\Controllers\Api\BaseController;
-use Tickers\Http\Requests\Clients\ClientStoreRequest;
-use Tickers\Http\Requests\Clients\ClientUpdateRequest;
-use Tickers\Http\Resources\Clients\ClientResource;
-use Tickers\Http\Resources\Clients\ClientCollection;
 
-class ClientController extends BaseController
+use Tickets\Models\Client\Client;
+use Tickets\Http\Controllers\Controller;
+use Tickets\Http\Requests\Clients\ClientStoreRequest;
+use Tickets\Http\Requests\Clients\ClientUpdateRequest;
+use Tickets\Http\Resources\Clients\ClientResource;
+use Tickets\Http\Resources\Clients\ClientCollection;
+
+class ClientController extends Controller
 {
   private $clients;
 
@@ -20,7 +21,7 @@ class ClientController extends BaseController
 
   public function index()
   {
-    return ClientCollection::collection($this->clients->paginate(25));
+    return new ClientCollection($this->clients->paginate(25));
   }
 
   public function show(Client $client)
@@ -39,7 +40,12 @@ class ClientController extends BaseController
 
   public function update(ClientUpdateRequest $request, Client $client)
   {
-    $client->update($request->validated());
+    $request->merge(['cpf' => trim(preg_replace('#[^0-9]#', '', $request->get('cpf')))]);
+
+    $validated = $request->validated();
+
+    $client->fill($request->all());
+    $client->save();
 
     return response()->json(['data' => new ClientResource($client)], 200);
   }
@@ -47,13 +53,6 @@ class ClientController extends BaseController
   public function delete(Client $client)
   {
     $client->delete();
-
-    return response()->json(['data' => new ClientResource($client)], 200);
-  }
-
-  public function restore(Client $client)
-  {
-    $client->restore();
 
     return response()->json(['data' => new ClientResource($client)], 200);
   }

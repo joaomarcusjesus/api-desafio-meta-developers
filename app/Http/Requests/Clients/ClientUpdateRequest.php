@@ -13,7 +13,7 @@ class ClientUpdateRequest extends FormRequest
    */
   public function authorize()
   {
-    return false;
+    return true;
   }
 
   /**
@@ -26,8 +26,8 @@ class ClientUpdateRequest extends FormRequest
     return [
       'first_name' => 'required|max:255',
       'last_name' => 'required|max:255',
-      'email' => 'required|email|max:255|unique:clients,id,' . $this->client->id,
-      'cpf' => 'required|max:40|unique:clients,id,' . $this->client->id,
+      'email' => 'required|email|max:255|unique:clients,email,' . $this->client->id,
+      'cpf' => 'required|max:40|unique:clients,cpf,' . $this->client->id,
       'phone' => 'nullable|max:40'
     ];
   }

@@ -1,5 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.menu {
+  position: fixed;
+  left: 0;
+  height: 100%;
+}
+
+.menu .list {
+  display: inline-block;
+  height: 100%;
+}
+
+.menu .list li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.lga {
+  font-size: 1.5em;
+}
+
+.space-white {
+  border-top: 1px solid white !important;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

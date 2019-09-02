@@ -66100,6 +66100,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/img/brand.svg":
+/*!*********************************!*\
+  !*** ./resources/img/brand.svg ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/brand.svg?d195be94845b349499cfbf1ee3917284";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -66155,16 +66166,14 @@ function (_Component) {
       tickets: []
     };
     return _this;
-  }
+  } // render() {
+  //   return (
+  //     <Tickets tickets={this.state.tickets} />
+  //   )
+  // }
+
 
   _createClass(App, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_tickets__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        tickets: this.state.tickets
-      });
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -66251,32 +66260,60 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _img_brand_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../img/brand.svg */ "./resources/img/brand.svg");
+/* harmony import */ var _img_brand_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_img_brand_svg__WEBPACK_IMPORTED_MODULE_1__);
 
+ // with import
 
 var NavBar = function NavBar() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    "class": "nav justify-content-center theme"
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    "class": "menu"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    "class": "nav list justify-content-center theme"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    "class": "nav-item hero"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    "class": "nav-link active",
+    href: "#",
+    title: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _img_brand_svg__WEBPACK_IMPORTED_MODULE_1___default.a,
+    width: "30"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+    "class": "space-white"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     "class": "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     "class": "nav-link active",
-    href: "#"
-  }, "Chamados")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    href: "#",
+    title: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-ticket lga"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     "class": "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    "class": "nav-link",
-    href: "#"
-  }, "Setores")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    "class": "nav-link active",
+    href: "#",
+    title: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-star lga"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     "class": "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    "class": "nav-link",
-    href: "#"
-  }, "Respons\xE1veis")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    "class": "nav-link active",
+    href: "#",
+    title: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-users lga"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     "class": "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    "class": "nav-link",
-    href: "#"
-  }, "Hist\xF3ricos")));
+    "class": "nav-link active",
+    href: "#",
+    title: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    "class": "fa fa-history lga"
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
@@ -66321,29 +66358,7 @@ var Tickets = function Tickets(_ref) {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     "class": "btn btn-success mt-3"
-  }, "Novo Chamado")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "col-md-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Dashboard")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "card"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "card-body text-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    "class": "card-title"
-  }, "Em aberto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-    "class": "text-black"
-  }, "110"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "card-body text-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    "class": "card-title"
-  }, "Em Atendimento"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-    "class": "text-black"
-  }, "255"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "card-body text-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    "class": "card-title"
-  }, "Fechado"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-    "class": "text-black"
-  }, "10"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))))));
+  }, "Novo Chamado"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Tickets);

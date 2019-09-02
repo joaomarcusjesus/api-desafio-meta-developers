@@ -14,11 +14,11 @@ class App extends Component {
     };
   }
 
-  render() {
-    return (
-      <Tickets tickets={this.state.tickets} />
-    )
-  }
+  // render() {
+  //   return (
+  //     <Tickets tickets={this.state.tickets} />
+  //   )
+  // }
 
   componentDidMount() {
     fetch('http://localhost:8000/api/v1/calls')

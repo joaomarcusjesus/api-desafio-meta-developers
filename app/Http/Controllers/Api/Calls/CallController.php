@@ -17,9 +17,19 @@ class CallController extends Controller
     $this->calls = $calls;
   }
 
-  public function index()
+  public function index(Request $request)
   {
-    return new CallCollection($this->calls->paginate(150));
+    $query = $this->calls->select('code', 'body', 'client_id', 'sector_id', 'status', 'active');
+
+    if ($request->filled('sector_id')) {
+      $query->with('sector')->sector($request->get('sector_id'));
+    }
+
+    if ($request->filled('client_id')) {
+      $query->with('client')->client($request->get('client_id'));
+    }
+
+    return new CallCollection($query->paginate(150));
   }
 
   public function show(Call $call)

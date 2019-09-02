@@ -10,6 +10,7 @@ class History extends Model
   protected $table = 'calls_histories';
 
   protected $fillable = [
+    'code',
     'body',
     'call_id',
     'responsible_id',
@@ -34,6 +35,20 @@ class History extends Model
   public function scopeActive($query)
   {
     return $query->whereActive($query);
+  }
+
+  public function scopeResponsible($query, $responsible_id)
+  {
+    return $query->whereHas('responsible', function ($q) use ($responsible_id) {
+      $q->whereId($responsible_id);
+    });
+  }
+
+  public function scopeCall($query, $call_id)
+  {
+    return $query->whereHas('call', function ($q) use ($call_id) {
+      $q->whereId($call_id);
+    });
   }
 
   public function responsible()

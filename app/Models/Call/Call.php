@@ -42,6 +42,20 @@ class Call extends Model
     return $query->whereActive($query);
   }
 
+  public function scopeSector($query, $sector_id)
+  {
+    return $query->whereHas('sector', function ($q) use ($sector_id) {
+      $q->whereId($sector_id);
+    });
+  }
+
+  public function scopeClient($query, $client_id)
+  {
+    return $query->whereHas('client', function ($q) use ($client_id) {
+      $q->whereId($client_id);
+    });
+  }
+
   public function sector()
   {
     return $this->belongsTo(Sector::class, 'sector_id');

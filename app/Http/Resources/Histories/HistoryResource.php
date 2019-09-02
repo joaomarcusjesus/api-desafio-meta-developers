@@ -1,11 +1,11 @@
 <?php
 
-namespace Tickets\Http\Resources\Calls;
+namespace Tickets\Http\Resources\Histories;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Tickets\Http\Resources\Histories\HistoryCollection;
 
-class CallResource extends JsonResource
+class HistoryResource extends JsonResource
 {
   /**
    * Transform the resource into an array.

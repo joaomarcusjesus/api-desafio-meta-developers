@@ -4,10 +4,13 @@ namespace Tickets\Models\Client;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
+use Tickets\Notifications\Calls\CallNotification;
+use Tickets\Notifications\Calls\CallUpdateNotification;
 
 class Client extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, Notifiable;
 
   protected $fillable = [
     'first_name',
@@ -29,6 +32,16 @@ class Client extends Model
   protected $appends = [
     'full_name'
   ];
+
+  public function sendCallNotification($client, $call)
+  {
+    $this->notify(new CallNotification($client, $call));
+  }
+
+  public function sendCallUpdateNotification($client, $call)
+  {
+    $this->notify(new CallUpdateNotification($client, $call));
+  }
 
   public function scopeActive($query)
   {

@@ -25,6 +25,10 @@ class HistoryController extends Controller
       $query->with('responsible')->responsible($request->get('responsible_id'));
     }
 
+    if ($request->filled('status')) {
+      $query->whereStatus($request->get('status'));
+    }
+
     if ($request->filled('call_id')) {
       $query->with('call')->call($request->get('call_id'));
     }

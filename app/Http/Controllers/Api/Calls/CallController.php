@@ -3,6 +3,7 @@
 namespace Tickets\Http\Controllers\Api\Calls;
 
 use Tickets\Models\Call\Call;
+use Tickets\Models\Responsible\Responsible;
 use Tickets\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Tickets\Http\Resources\Calls\CallResource;
@@ -11,10 +12,12 @@ use Tickets\Http\Resources\Calls\CallCollection;
 class CallController extends Controller
 {
   private $calls;
+  private $responsibles;
 
-  public function __construct(Call $calls)
+  public function __construct(Call $calls, Responsible $responsibles)
   {
     $this->calls = $calls;
+    $this->responsibles = $responsibles;
   }
 
   public function index(Request $request)
@@ -25,11 +28,15 @@ class CallController extends Controller
       $query->with('sector')->sector($request->get('sector_id'));
     }
 
+    if ($request->filled('status')) {
+      $query->whereStatus($request->get('status'));
+    }
+
     if ($request->filled('client_id')) {
       $query->with('client')->client($request->get('client_id'));
     }
 
-    return new CallCollection($query->paginate(150));
+    return new CallCollection($query->paginate(4));
   }
 
   public function show(Call $call)
@@ -51,6 +58,14 @@ class CallController extends Controller
 
     $call = $this->calls->create($request->all());
 
+    $call->client->sendCallNotification($call->client, $call);
+
+    $responsibles = $this->responsibles->sector($call->sector->id)->get();
+
+    $responsibles->each(function($q) use ($call) {
+      $q->sendCallResponsibleNotification($q, $call);
+    });
+
     return response()->json(['data' => new CallResource($call)], 200);
   }
 
@@ -68,6 +83,8 @@ class CallController extends Controller
 
     $call->fill($request->all());
     $call->save();
+
+    $call->client->sendCallUpdateNotification($call->client, $call);
 
     return response()->json(['data' => new CallResource($call)], 200);
   }

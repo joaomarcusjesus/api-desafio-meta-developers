@@ -5,10 +5,12 @@ namespace Tickets\Models\Responsible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tickets\Models\Sector\Sector;
+use Illuminate\Notifications\Notifiable;
+use Tickets\Notifications\Calls\CallResponsibleNotification;
 
 class Responsible extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, Notifiable;
 
   protected $fillable = [
     'first_name',
@@ -30,6 +32,11 @@ class Responsible extends Model
   protected $appends = [
     'full_name'
   ];
+
+  public function sendCallResponsibleNotification($responsible, $call)
+  {
+    $this->notify(new CallResponsibleNotification($responsible, $call));
+  }
 
   public function scopeActive($query)
   {

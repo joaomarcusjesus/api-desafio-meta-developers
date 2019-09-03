@@ -89,4 +89,9 @@ class Call extends Model
 
     return $status;
   }
+
+  public function getReferenceAttribute()
+  {
+    return "#" . str_pad($this->id, 5, '0', STR_PAD_LEFT);
+  }
 }

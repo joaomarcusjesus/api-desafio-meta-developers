@@ -18,7 +18,7 @@ class CallCollection extends ResourceCollection
     return [
       'data' => $this->collection->transform(function($call) {
         return [
-          'code' => $call->code,
+          'reference' => $call->reference,
           'body' => $call->body,
           'client' => $call->client->full_name,
           'sector' => $call->sector->name,

@@ -26,13 +26,17 @@
     background: #dad7d7;
 } */
 
+.icon {
+  color: #9E9E9E;
+}
+
 .top {
   padding-top: 3%;
 }
 
 .theme {
   padding: 0.2em;
-  background: rebeccapurple !important;
+  background: #212533 !important;
 }
 
 .nav-item a {

@@ -2,25 +2,43 @@ import React from 'react'
 
 const Tickets = ({ tickets }) => {
   return (
-    <div class="container top">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="-scroll">
-            <center><h1>Chamados em aberto</h1></center>
-            {tickets.map((ticket) => (
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">#{ticket.code}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">{ticket.responsible}</h6>
-                  <p class="card-text">{ticket.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <button type="button" class="btn btn-success mt-3">Novo Chamado</button>
-        </div>
+    <section class="pl-table">
+      <div class="section-title">
+        Últimos Chamados
+        <br></br>
+        <small><b>Total</b>: {tickets.length} </small>
       </div>
-    </div>
+      <table class="pl-table__body--desktop col-12">
+        <tr class="pl-table__labels" >
+          <td class="pl-table__cod">
+              #
+          </td>
+          <td>
+              Cliente
+          </td>
+          <td>
+             Setor
+          </td>
+          <td>
+            Status
+          </td>
+          <td>
+            Ações
+          </td>
+        </tr>
+        {tickets.map(ticket => (
+          <tr class="pl-table__item">
+            <td>{ ticket.reference }</td>
+            <td>{ ticket.client }</td>
+            <td>{ ticket.sector }</td>
+            <td>{ ticket.status }</td>
+            <td>
+              <i class="fa fa-ellipsis-v lga icon"></i>
+            </td>
+          </tr>
+        ))}
+      </table>
+    </section>
   )
 };
 

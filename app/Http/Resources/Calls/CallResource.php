@@ -16,7 +16,7 @@ class CallResource extends JsonResource
   public function toArray($request)
   {
     return [
-      'code' => $this->code,
+      'reference' => str_limit($call->code, 5),
       'body' => $this->body,
       'client' => $this->client->full_name,
       'sector' => $this->sector->name,

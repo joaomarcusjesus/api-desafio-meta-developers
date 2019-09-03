@@ -68,7 +68,8 @@
     </head>
     <body>
         <div id="navbar"></div>
-        <div id="app"></div>
+        <div id="dashboard"></div>
+         <div id="app"></div>
         <script src="/js/app.js"></script>
     </body>
 </html>

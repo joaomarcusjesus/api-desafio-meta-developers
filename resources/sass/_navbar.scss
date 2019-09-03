@@ -2,6 +2,7 @@
   position: fixed;
   left: 0;
   height: 100%;
+  z-index: 999;
 
   .list {
     display: inline-block;
@@ -19,4 +20,19 @@
 
 .space-white {
   border-top: 1px solid white !important;
+}
+
+#navbar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+}
+
+#app {
+  padding-left: 4.5em;
+}
+
+#dashboard {
+  padding-left: 5em;
+  padding-top: 3.5em;
 }

@@ -66126,6 +66126,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_tickets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/tickets */ "./resources/js/components/tickets.js");
 /* harmony import */ var _components_navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/navbar */ "./resources/js/components/navbar.js");
+/* harmony import */ var _components_dashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/dashboard */ "./resources/js/components/dashboard.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66151,6 +66152,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -66166,14 +66168,16 @@ function (_Component) {
       tickets: []
     };
     return _this;
-  } // render() {
-  //   return (
-  //     <Tickets tickets={this.state.tickets} />
-  //   )
-  // }
-
+  }
 
   _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_tickets__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        tickets: this.state.tickets
+      });
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -66195,9 +66199,14 @@ function (_Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 var navbar = document.getElementById('navbar');
+var dashboard = document.getElementById('dashboard');
 
 if (navbar) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('navbar'));
+}
+
+if (dashboard) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_dashboard__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('dashboard'));
 }
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
@@ -66246,6 +66255,55 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/dashboard.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Dashboard = function Dashboard() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "container-fluid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "col-lg-4 col-md-4 col-sm-12"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "tt-card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "score-blue"
+  }, "Abertos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    "class": "text-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "150")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "col-lg-4 col-md-4 col-sm-12"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "tt-card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "score-blue"
+  }, "Em andamento"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    "class": "text-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "22")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "col-lg-4 col-md-4 col-sm-12"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "tt-card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "score-blue"
+  }, "Fechados"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    "class": "text-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "312"))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 
 /***/ }),
 
@@ -66335,30 +66393,23 @@ __webpack_require__.r(__webpack_exports__);
 
 var Tickets = function Tickets(_ref) {
   var tickets = _ref.tickets;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "container top"
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    "class": "pl-table"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "row"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "col-md-8"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "-scroll"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Chamados em aberto")), tickets.map(function (ticket) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      "class": "card"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      "class": "card-body"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-      "class": "card-title"
-    }, "#", ticket.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-      "class": "card-subtitle mb-2 text-muted"
-    }, ticket.responsible), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-      "class": "card-text"
-    }, ticket.body)));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    "class": "btn btn-success mt-3"
-  }, "Novo Chamado"))));
+    "class": "section-title"
+  }, "\xDAltimos Chamados", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Total"), ": ", tickets.length, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    "class": "pl-table__body--desktop col-12"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    "class": "pl-table__labels"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    "class": "pl-table__cod"
+  }, "#"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cliente"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Setor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Status"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "A\xE7\xF5es")), tickets.map(function (ticket) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      "class": "pl-table__item"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ticket.reference), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ticket.client), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ticket.sector), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ticket.status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      "class": "fa fa-ellipsis-v lga icon"
+    })));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Tickets);
@@ -66383,8 +66434,8 @@ var Tickets = function Tickets(_ref) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/qualitare/workspace/api-desafio-meta-developers/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/qualitare/workspace/api-desafio-meta-developers/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/joaomarcus/workspace/meta-developers/ticket-meta-developers/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/joaomarcus/workspace/meta-developers/ticket-meta-developers/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

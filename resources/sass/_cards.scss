@@ -1,0 +1,49 @@
+.big {
+  // height: 450px !important;
+  margin-left: 2.5em !important;
+}
+
+.tt-card {
+  position: relative;
+  background-color: #fff;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  color: #212533;
+  border: 1px solid #eee;
+  border-radius: 0.5em;
+  // max-width: 250px;
+}
+
+// .tt-card:hover {
+//   background-color: #f3f3f3;
+// }
+
+.tt-card .score {
+  text-align: center;
+}
+
+.tt-card .score-blue {
+  text-align: center;
+}
+
+.score {
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #8bc34a;
+}
+
+.score-blue {
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #212533;
+}
+
+.btn-default {
+  background-color: #333333;
+  color: #fff;
+  border: 1px solid #333333;
+}
+
+.btn-default:hover {
+  background-color: #eee !important;
+}
